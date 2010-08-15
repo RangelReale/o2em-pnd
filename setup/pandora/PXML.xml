@@ -10,8 +10,8 @@
  
     <description lang="en_US">O2EM 1.18 pandora 0</description>
 
-    <icon src="./zelda.png"/>
-    <info name="O2EM" type="text/plain" src="README.o2em.txt"/>
+    <icon src="./o2em.png"/>
+    <info name="O2EM" type="text/plain" src="O2EM.TXT"/>
 
  
     <author name="Rangel Reale" website="http://www.rangelreale.com" email="rangelspam@gmail.com"/>

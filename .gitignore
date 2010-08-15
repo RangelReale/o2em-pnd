@@ -1,5 +1,6 @@
 SRC/*.o
 SRC/o2em
 SRC/dis48
-setup/padora/*.pnd
-setup/padora/build/
+setup/pandora/*.pnd
+setup/pandora/build/
+
