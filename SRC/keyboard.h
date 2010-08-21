@@ -16,7 +16,7 @@ extern Byte key_done;
 extern Byte key_debug;
 extern int joykeys[2][5];
 extern int joykeystab[128];
-extern int syskeys[8];
+extern int syskeys[9];
 
 struct keyb{
 	int keybcode;

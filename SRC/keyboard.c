@@ -157,14 +157,14 @@ struct keyb keybtab[] = {
 
 int joykeys[2][5] = {{0,0,0,0,0},{0,0,0,0,0}};
 int joykeystab[128];
-int syskeys[8] = {0,0,0,0,0,0,0,0};
-
+int syskeys[9] = {0,0,0,0,0,0,0,0,0};
+int joyswitch = 0;
 
 void set_defjoykeys(int jn, int sc){
 	if (sc)
 		set_joykeys(jn,KEY_W,KEY_S,KEY_A,KEY_D,KEY_SPACE);
 	else
-		set_joykeys(jn,KEY_UP,KEY_DOWN,KEY_LEFT,KEY_RIGHT,KEY_L);
+		set_joykeys(jn,KEY_UP,KEY_DOWN,KEY_LEFT,KEY_RIGHT,KEY_END);
 }
 
 	
@@ -204,6 +204,7 @@ void set_systemkeys(int k_quit,int k_pause,int k_debug,int k_reset,int k_screenc
 	syskeys[5] = k_save;
 	syskeys[6] = k_load;
 	syskeys[7] = k_inject;
+	syskeys[8] = KEY_F9;
 }
 
 
@@ -334,6 +335,22 @@ if (key[syskeys[5]])
 		}
 	}
 
+	// switch joystick
+	if (key[syskeys[8]]) {
+		joyswitch = joyswitch ? 0 : 1;
+
+		set_defjoykeys(0,joyswitch);
+		set_defjoykeys(1,joyswitch ? 0 : 1);
+		int tmp = app_data.stick[0];
+		app_data.stick[0] = app_data.stick[1];
+		app_data.stick[1] = tmp;
+
+		do {
+			rest(5);
+			if (NeedsPoll) poll_keyboard();
+		} while (key[syskeys[8]]);
+
+	}
 
 	if (key[KEY_ALT] && key[KEY_ENTER]) {
 		app_data.fullscreen = app_data.fullscreen ? 0 : 1;

@@ -8,7 +8,7 @@
  
     <exec command="./run.sh"/>
  
-    <description lang="en_US">O2EM 1.18 pandora 0</description>
+    <description lang="en_US">O2EM 1.18 pandora 1</description>
 
     <icon src="./o2em.png"/>
     <info name="O2EM" type="text/plain" src="O2EM.TXT"/>
